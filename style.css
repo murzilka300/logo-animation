@@ -1,0 +1,138 @@
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 50%, transparent 100%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: shine 1s 2s forwards;
+}
+
+.logo img {
+    opacity: 1;
+    border-radius: 50%;
+    animation: logoAnimation 2s forwards, waves 1s 1s 1;
+    transform-style: preserve-3d;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.logo .logo-caption {
+    opacity: 0;
+    animation: fadeIn 2s ease-in 1s forwards;
+    font-size: 5px;
+}
+
+@keyframes logoAnimation {
+    0% {
+        opacity: 0;
+        transform: rotate3d(1, 2, 0, 0deg) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate3d(1, 2, 0, 180deg) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate3d(1, 2, 0, 180deg) scale(0.9);
+    }
+}
+
+@keyframes waves {
+    0% {
+        box-shadow: 0 0 0 0px rgba(173, 216, 230, 0.2),
+                    0 0 0 0px rgba(173, 216, 230, 0.2),
+                    0 0 0 0px rgba(173, 216, 230, 0.2);
+    }
+    33% {
+        box-shadow: 0 0 0 10px rgba(173, 216, 230, 0.2),
+                    0 0 0 0px rgba(173, 216, 230, 0.2),
+                    0 0 0 0px rgba(173, 216, 230, 0.2);
+    }
+    66% {
+        box-shadow: 0 0 0 20px rgba(173, 216, 230, 0.2),
+                    0 0 0 10px rgba(173, 216, 230, 0.2),
+                    0 0 0 0px rgba(173, 216, 230, 0.2);
+    }
+    75% {
+        box-shadow: 0 0 0 25px rgba(173, 216, 230, 0.15),
+                    0 0 0 15px rgba(173, 216, 230, 0.15),
+                    0 0 0 5px rgba(173, 216, 230, 0.15);
+    }
+    85% {
+        box-shadow: 0 0 0 30px rgba(173, 216, 230, 0.1),
+                    0 0 0 20px rgba(173, 216, 230, 0.1),
+                    0 0 0 10px rgba(173, 216, 230, 0.1);
+    }
+    95% {
+        box-shadow: 0 0 0 30px rgba(173, 216, 230, 0.05),
+                    0 0 0 20px rgba(173, 216, 230, 0.05),
+                    0 0 0 10px rgba(173, 216, 230, 0.05);
+    }
+    100% {
+        box-shadow: 0 0 0 30px rgba(173, 216, 230, 0),
+                    0 0 0 20px rgba(173, 216, 230, 0),
+                    0 0 0 10px rgba(173, 216, 230, 0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textResize {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9); /* или любое другое значение, которое вам нужно */
+    }
+}
+
+.logo-caption {
+    position: relative;
+    right: 39px;
+    top: 10px;
+    font-size: 5px;
+    animation: textAnimation 2s forwards;
+    position: relative;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+}
